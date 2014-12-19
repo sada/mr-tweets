@@ -41,3 +41,4 @@ gem 'spring',        group: :development
 gem "twitter"
 gem "puma"
 gem "underscore-rails"
+gem "rails_config"
