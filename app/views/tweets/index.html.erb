@@ -1,0 +1,45 @@
+<div class="wrapper">
+  <div id="stream-items">
+  </div>
+</div>
+<script id="tweet-template" type="text/template">
+  <div class="strem-item">
+    <div class="tweet">
+      <div class="content">
+        <div class="stream-item-header">
+          <a class="account-group" href="https://twitter.com/{{= screenName }}">
+            <img class="avatar" src="{{= profileImageUri }}" />
+            <strong class="fullname">{{= name }}</strong>
+            <span class="username">
+              <s>@</s>
+              <b>{{= screenName }}</b>
+            </span>
+          </a>
+          <p class="tweet-text">{{= text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<%= javascript_tag do %>
+$(function() {
+  var eventSource = new EventSource('/tweets/stream');
+
+  eventSource.addEventListener('tweet', function(event) {
+    var json = JSON.parse(event.data);
+    console.log(json);
+    var t = $('#tweet-template').html();
+    var template = _.template(t, {
+      screenName: json['user']['screen_name'],
+      profileImageUri: json['user']['profile_image_url'],
+      name: json['user']['name'],
+      text: json['text']
+    });
+    $('#stream-items').prepend(template);
+  });
+  eventSource.addEventListener('done', function(event) {
+    this.close();
+  });
+});
+<% end %>

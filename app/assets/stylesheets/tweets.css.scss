@@ -1,3 +1,93 @@
 // Place all the styles related to the Tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper {
+  padding-left: 58px;
+}
+
+.stream-items {
+  position: relative;
+  margin-left: 0;
+  list-style: none;
+}
+
+.stream-item {
+  background: #fff;
+  border-left: 1px solid #e1e8ed;
+  border-right: 1px solid #e1e8ed;
+  background-clip: padding-box;
+}
+
+.stream-item .content {
+  margin-left: 58px;
+}
+
+.tweet {
+  position: relative;
+  min-height: 51px;
+  padding: 9px 12px;
+  border-bottom: 1px solid #e1e8ed;
+}
+
+.stream-item-header .account-group {
+  color: #8899a6;
+}
+
+.stream-item-header .avatar {
+  float: left;
+  margin-top: 3px;
+  margin-left: -58px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 5px;
+}
+
+.fullname {
+  font-weight: bold;
+  color: #292f33;
+}
+
+.username {
+  direction: ltr;
+  unicode-bidi: embed;
+}
+
+.username s {
+  color: #b1bbc3;
+}
+
+b {
+  font-weight: normal;
+}
+
+.tweet p {
+  word-wrap: break-word;
+}
+
+blockquote, dl, dd, h1, h2, h3, h4, h5, h6, figure, p, pre {
+  margin: 0;
+}
+
+a {
+  background: transparent;
+}
+
+body {
+  background: #fff;
+  color: #292f33;
+  font-size: 14px;
+  line-height: 18px;
+  overflow-y: scroll;
+}
+
+body.user-style {
+  background-image: url(https://abs.twimg.com/images/themes/theme13/bg.gif);
+  background-position: left 40px;
+  background-attachment: fixed;
+  background-repeat: repeat;
+  background-repeat: no-repeat;
+  background-color: #B2DFDA;
+}
