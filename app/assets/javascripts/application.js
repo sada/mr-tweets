@@ -15,3 +15,8 @@
 //= require underscore
 //= require turbolinks
 //= require_tree .
+
+_.templateSettings = {
+  interpolate: /\{\{\=(.+?)\}\}/g,
+  evaluate: /\{\{(.+?)\}\}/g
+};
