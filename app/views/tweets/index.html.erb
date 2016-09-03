@@ -30,13 +30,14 @@ $(function() {
     var json = JSON.parse(event.data);
     console.log(json);
     var t = $('#tweet-template').html();
-    var template = _.template(t, {
+    var template = _.template(t);
+    var html = template({
       screenName: json['user']['screen_name'],
       profileImageUri: json['user']['profile_image_url'],
       name: json['user']['name'],
       text: json['text']
     });
-    $('#stream-items').prepend(template);
+    $('#stream-items').prepend(html);
   });
   eventSource.addEventListener('done', function(event) {
     this.close();
